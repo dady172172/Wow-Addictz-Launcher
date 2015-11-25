@@ -73,16 +73,17 @@ Partial Class Form1
         '
         'textwowdir
         '
-        Me.textwowdir.Location = New System.Drawing.Point(27, 96)
+        Me.textwowdir.Location = New System.Drawing.Point(35, 96)
         Me.textwowdir.Name = "textwowdir"
         Me.textwowdir.Size = New System.Drawing.Size(255, 26)
         Me.textwowdir.TabIndex = 1
+        Me.textwowdir.Text = "Path to wow folder"
         '
         'buttonbrowse
         '
-        Me.buttonbrowse.Location = New System.Drawing.Point(331, 96)
+        Me.buttonbrowse.Location = New System.Drawing.Point(336, 96)
         Me.buttonbrowse.Name = "buttonbrowse"
-        Me.buttonbrowse.Size = New System.Drawing.Size(75, 26)
+        Me.buttonbrowse.Size = New System.Drawing.Size(75, 33)
         Me.buttonbrowse.TabIndex = 2
         Me.buttonbrowse.Text = "Browse"
         Me.buttonbrowse.UseVisualStyleBackColor = True

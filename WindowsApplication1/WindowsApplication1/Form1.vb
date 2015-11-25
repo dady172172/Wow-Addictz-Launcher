@@ -15,7 +15,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not My.Settings.wowdir = String.Empty Then
-            My.Settings.wowdir = textwowdir.Text
+            textwowdir.Text = My.Settings.wowdir
         End If
 
     End Sub
@@ -26,11 +26,13 @@ Public Class Form1
 
     Private Sub buttonbrowse_Click(sender As Object, e As EventArgs) Handles buttonbrowse.Click
         FolderBrowserDialog1.ShowDialog()
-        Dim selectedwowdir As String = FolderBrowserDialog1.SelectedPath
-        If File.Exists(selectedwowdir + "\wow.exe") Then
-            My.Settings.wowdir = selectedwowdir
+        textwowdir.Text = FolderBrowserDialog1.SelectedPath
+        Dim wowexedir As String = textwowdir.Text + "\wow.exe"
+        If File.Exists(wowexedir) Then
+
+            My.Settings.wowdir = textwowdir.Text
             My.Settings.Save()
-            selectedwowdir = textwowdir.Text
+
         Else
             MessageBox.Show("Error finding wow.exe. Please select the folder with wow.exe in it. If you don't have the client please see our website or How to connect above.", "Error")
 
@@ -43,7 +45,12 @@ Public Class Form1
         ElseIf Not File.Exists(textwowdir.Text + "\wow.exe") Then
             MessageBox.Show("Error finding wow.exe. Please select the folder with wow.exe in it. If you don't have the client please see our website or How to connect above.", "Error")
         Else
-            Process.Start(textwowdir.Text + "\wow.exe")
+            Dim wowexedir = textwowdir.Text + "\wow.exe"
+            Dim wowcfg = textwowdir.Text + "\Data\enUS\realmlist.wtf"
+            My.Computer.FileSystem.DeleteFile(wowcfg)
+            File.Create(wowcfg).Dispose()
+            My.Computer.FileSystem.WriteAllText(wowcfg, "set realmlist localhost", True)
+            Process.Start(wowexedir)
         End If
 
 
