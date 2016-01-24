@@ -65,6 +65,30 @@ Namespace My
                 Me("wowdir") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property catadir() As String
+            Get
+                Return CType(Me("catadir"),String)
+            End Get
+            Set
+                Me("catadir") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property mopdir() As String
+            Get
+                Return CType(Me("mopdir"),String)
+            End Get
+            Set
+                Me("mopdir") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
